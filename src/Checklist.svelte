@@ -1,7 +1,7 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import Dialog from './Dialog.svelte';
     import Category from './Category.svelte';
+    import Dialog from './Dialog.svelte';
     import {getGuid, sortOnName} from './util';
 
     const dispatch = createEventDispatcher();
@@ -9,9 +9,12 @@
     let categoryArray = [];
     let categories = {};
     let categoryName;
+    let dialog = null;
     let message = '';
     let show = 'all';
-    let dialog = null;
+
+    $: categoryArray = sortOnName(Object.values(categories));
+
     let dragAndDrop = {
         drag(event, categoryId, itemId) {
             const data = { categoryId, itemId };
@@ -27,8 +30,6 @@
             categories = categories;
         }
     };
-
-    $: categoryArray = sortOnName(Object.values(categories));
 
     function addCategory() {
         const duplicate = Object.values(categories).some(
@@ -46,6 +47,15 @@
         categoryName = '';
     }
 
+    function clearAllChecks() {
+        for (const category of Object.values(categories)) {
+            for (const item of Object.values(category.items)) {
+                item.packed = false;
+            }
+        }
+        categories = categories;
+    }
+
     function deleteCategory(category) {
         if (Object.values(category.items).length) {
             message = 'This category is not empty.';
@@ -54,15 +64,6 @@
         }
 
         delete categories[category.id];
-        categories = categories;
-    }
-
-    function clearAllChecks() {
-        for (const category of Object.values(categories)) {
-            for (const item of Object.values(category.items)) {
-                item.packed = false;
-            }
-        }
         categories = categories;
     }
 
