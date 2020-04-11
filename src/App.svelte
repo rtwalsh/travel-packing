@@ -1,29 +1,42 @@
 <script>
+    import page from 'page';
     import Login from './Login.svelte';
     import Checklist from './Checklist.svelte';
     import NotFound from './NotFound.svelte';
 
+    /*
     const hashMap = {
         '#login': Login,
         '#checklist': Checklist
     };
+    */
 
     let component = Login;
 
+    /*
     const hashChange = () => {
         console.log('Hash change; ' + location.hash);
         component = hashMap[location.hash] || NotFound
     };
+    */
+
+   page.redirect('/', '/login');
+   page('/login', () => (component = Login));
+   page('/checklist', () => (component = Checklist));
+   page('*', () => (component = NotFound));
+   page.start();
 </script>
 
+<!--
 <svelte:window on:hashchange="{hashChange}" />
+-->
 
 <main>
     <h1 class="hero">Travel Packing Checklist</h1>
     <svelte:component 
         this="{component}" 
-        on:login="{ () => (location.href = '/#checklist') }"
-        on:logout="{ () => (location.href = '/#login') }"
+        on:login="{ () => page.show('/checklist') }"
+        on:logout="{ () => page.show('/login') }"
     />
 </main>
 
