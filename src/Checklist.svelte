@@ -1,10 +1,13 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import { flip } from 'svelte/animate';
+
     import Category from './Category.svelte';
     import Dialog from './Dialog.svelte';
     import {getGuid, sortOnName} from './util';
 
     const dispatch = createEventDispatcher();
+    const options = { duration: 700 };
 
     let categoryArray = [];
     let categories = {};
@@ -122,13 +125,15 @@
 
     <div class="categories">
         {#each categoryArray as category (category.id)}
-            <Category 
-                dnd="{dragAndDrop}"
-                bind:category 
-                {categories} 
-                {show} 
-                on:delete="{ () => deleteCategory(category) }" 
-                on:persist="{persist}" />
+            <div class="wrapper" animate:flip="{options}">
+                <Category 
+                    dnd="{dragAndDrop}"
+                    bind:category 
+                    {categories} 
+                    {show} 
+                    on:delete="{ () => deleteCategory(category) }" 
+                    on:persist="{persist}" />
+            </div>
         {/each}
     </div>
 </section>
@@ -144,6 +149,14 @@
         justify-content: center;
     }
 
+    .animate {
+        display: inline-block;
+    }
+
+    .wrapper {
+        display: inline;
+    }
+    
     .clear {
         margin-left: 30px;
     }

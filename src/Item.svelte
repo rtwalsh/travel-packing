@@ -9,6 +9,7 @@
     export let categoryId;
 
     let editing = false;
+    $: if (editing) console.log('editing item', item.name);
 </script>
 
 <li>
