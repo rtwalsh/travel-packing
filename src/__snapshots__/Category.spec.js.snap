@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category should match snapshot 1`] = `
+<body>
+  <div>
+    <section
+      class="svelte-1fx2ghy"
+      ondragover="return false"
+    >
+      <h3
+        class="svelte-1fx2ghy"
+      >
+        <span>
+          Clothes
+        </span>
+         
+        <span
+          class="status svelte-1fx2ghy"
+        >
+          1 of 2 remaining
+        </span>
+         
+        <button
+          class="icon svelte-1fx2ghy"
+        >
+          🗑
+        </button>
+      </h3>
+       
+      <form>
+        <label>
+          New Item
+            
+          <input
+            class="svelte-1fx2ghy"
+            data-testid="item-input"
+            required=""
+          />
+        </label>
+         
+        <button
+          class="svelte-1fx2ghy"
+        >
+          Add Item
+        </button>
+      </form>
+       
+      <ul
+        class="svelte-1fx2ghy"
+      >
+        <div>
+          <li
+            class="svelte-4o8dc6"
+          >
+            <input
+              class="svelte-4o8dc6"
+              type="checkbox"
+            />
+             
+            <span
+              class="packed-false svelte-4o8dc6"
+              draggable="true"
+            >
+              shoes
+            </span>
+             
+            <button
+              class="icon svelte-4o8dc6"
+              data-testid="delete"
+            >
+              🗑
+            </button>
+          </li>
+           
+        </div>
+        <div>
+          <li
+            class="svelte-4o8dc6"
+          >
+            <input
+              class="svelte-4o8dc6"
+              type="checkbox"
+            />
+             
+            <span
+              class="packed-true svelte-4o8dc6"
+              draggable="true"
+            >
+              socks
+            </span>
+             
+            <button
+              class="icon svelte-4o8dc6"
+              data-testid="delete"
+            >
+              🗑
+            </button>
+          </li>
+           
+        </div>
+      </ul>
+    </section>
+     
+    <dialog
+      class="dialog svelte-1safvr0"
+    >
+      <header
+        class="svelte-1safvr0"
+      >
+         
+        <div
+          class="title svelte-1safvr0"
+        >
+          Category
+        </div>
+         
+        <button
+          class="close-btn svelte-1safvr0"
+        >
+          ✖
+        </button>
+      </header>
+       
+      <main
+        class="svelte-1safvr0"
+      >
+        <div>
+          
+        </div>
+      </main>
+    </dialog>
+  </div>
+</body>
+`;

@@ -108,9 +108,9 @@
     <form on:submit|preventDefault={addItem}>
         <label>
             New Item
-            <input bind:value={itemName}>
+            <input data-testid="item-input" required bind:value={itemName}>
         </label>
-        <button disabled={!itemName}>Add Item</button>
+        <button>Add Item</button>
     </form>
 
     <ul>

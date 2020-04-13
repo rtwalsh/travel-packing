@@ -16,11 +16,13 @@
     <input type="checkbox" bind:checked={item.packed}>
     {#if editing}
         <input
-            autofocus
+            type="text" 
             bind:value={item.name}
             on:blur="{() => (editing = false)}"
             on:keydown={blurOnKey}
-            type="text" />
+            required
+            autofocus
+        />
     {:else}
         <span 
             class="packed-{item.packed}" 
@@ -31,7 +33,7 @@
             {item.name}
         </span>
     {/if}
-    <button class="icon" on:click="{ () => dispatch('delete') }">&#x1F5D1;</button>
+    <button class="icon" data-testid="delete" on:click="{ () => dispatch('delete') }">&#x1F5D1;</button>
 </li>
 
 <style>

@@ -15,7 +15,9 @@
     export let title;
     const dispatch = createEventDispatcher();
     $: classNames = 'dialog' + (className ? ' ' + className : '');
-    onMount(() => dialogPolyfill.registerDialog(dialog));
+
+    onMount(() => { if (dialogPolyfill) return dialogPolyfill.registerDialog(dialog) });
+    
     function close() {
       // Parent components can optionally listen for this event.
       dispatch('close');

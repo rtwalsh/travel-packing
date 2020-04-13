@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item should match snapshot 1`] = `
+<body>
+  <div>
+    <li
+      class="svelte-4o8dc6"
+    >
+      <input
+        class="svelte-4o8dc6"
+        type="checkbox"
+      />
+       
+      <span
+        class="packed-false svelte-4o8dc6"
+        draggable="true"
+      >
+        socks
+      </span>
+       
+      <button
+        class="icon svelte-4o8dc6"
+        data-testid="delete"
+      >
+        🗑
+      </button>
+    </li>
+  </div>
+</body>
+`;
