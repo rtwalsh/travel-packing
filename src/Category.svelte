@@ -92,7 +92,7 @@
     ondragover="return false"
 >
 
-    <h3>
+    <h2>
         {#if editing}
             <input
                 bind:value={category.name}
@@ -103,7 +103,7 @@
         {/if}
         <span class="status">{status}</span>
         <button class="icon" on:click="{ () => dispatch('delete') }">&#x1F5D1;</button>
-    </h3>
+    </h2>
 
     <form on:submit|preventDefault={addItem}>
         <label>
@@ -139,7 +139,7 @@
         border: none;
     }
 
-    h3 {
+    h2 {
         display: flex;
         justify-content: space-between;
         align-items: center;

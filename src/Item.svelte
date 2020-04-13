@@ -13,10 +13,11 @@
 </script>
 
 <li>
-    <input type="checkbox" bind:checked={item.packed}>
+    <input type="checkbox" aria-label="Toggle Packed" bind:checked={item.packed}>
     {#if editing}
         <input
             type="text" 
+            aria-label="Edit Name"
             bind:value={item.name}
             on:blur="{() => (editing = false)}"
             on:keydown={blurOnKey}
